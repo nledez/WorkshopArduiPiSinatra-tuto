@@ -21,11 +21,13 @@ exemple.
 
 Créer un répertoire de travail
 
-`mkdir WorkShopArduiPiSinatra`
+[source,bash]
+mkdir WorkShopArduiPiSinatra
 
 Aller dans le répertoire de travail
 
-`cd WorkShopArduiPiSinatra`
+[source,bash]
+cd WorkShopArduiPiSinatra
 
 Installation / controle des logiciels nécessaires.
 --------------------------------------------------
@@ -36,7 +38,8 @@ vérifier
 ruby
 ~~~~
 
-`ruby –-version`
+[source,bash]
+ruby –-version
 
 image::images/01-Ruby-version.jpg[]
 
@@ -47,7 +50,8 @@ gem
 
 On va vérifier ensuite que gem soit bien installé avec la commande
 
-`gem –-version`
+[source,bash]
+gem –-version
 
 image::images/02-gem-version.jpg[]
 
@@ -59,12 +63,14 @@ sinatra
 Maintenant, nous allons pouvoir installer le framework sinatra, pour
 cela on éxécute la commande
 
-`sudo gem install sinatra`
+[source,bash]
+sudo gem install sinatra
 
 image::images/03-Install-Sinatra.jpg[]
 
-_Vous devez être connecté à internet pour cette étape car le framework
-sinatra sera téléchargé._
+[NOTE]
+Vous devez être connecté à internet pour cette étape car le framework
+sinatra sera téléchargé.
 
 Nous allons devoir fixer la version des gems nécessaires (bundle va s'en
 occuper pour nous)
@@ -74,14 +80,16 @@ bundle
 
 Verification que bundle soit bien installé.
 
-`bundle --version`
+[source,bash]
+bundle --version
 
 image::images/04-Bundle-version-pas-installe.jpg[]
 
 Le retour commande introuvable nous indique que bundle n'est pas
 installé, nous allons donc l'installer avec la commande.
 
-`sudo apt-get install bundler`
+[source,bash]
+sudo apt-get install bundler
 
 _il y'a bien un 'r' à la fin, ce n'est pas une faute de frappe_
 
@@ -90,7 +98,8 @@ image::images/05-install-Bundler.jpg[]
 Vérification que l'installation ce soit bien déroulée en rééxécutant la
 commande
 
-`bundle --version`
+[source,bash]
+bundle --version
 
 image::images/07-verif-apres-install-Bundler.jpg[]
 
@@ -99,7 +108,8 @@ bien bundle d'installé.
 
 Controle du contenu du dossier en cours avec la commande.
 
-`ls -alh`
+[source,bash]
+ls -alh
 
 image::images/08-avant-bundle-init.jpg[]
 
@@ -109,7 +119,8 @@ n'avons encore rien fait)
 Création d'un fichier 'gabarit' Gemfile (spécifie les versions de gems
 utilisées).
 
-`bundle init`
+[source,bash]
+bundle init
 
 image::images/09a-apres-bundle-init.jpg[]
 
@@ -121,7 +132,8 @@ On voit qu'un fichier Gemfile à été créé.
 
 Allons voir ce qu'il contient en éxécutant la commande suivante.
 
-`sudo nano Gemfile`
+[source,bash]
+sudo nano Gemfile
 
 image::images/10-edit-fichier-Gemfile.jpg[]
 
@@ -129,19 +141,22 @@ Nous remarquons que ce fichier est vide (enfin presque), car il contient
 tout de même un exemple. Nous allons lui spécifier de gérer les
 dépendances pour le framework sinatra. En ajoutant la ligne suivante.
 
-`gem ‘sinatra’`
+[source,ruby]
+gem ‘sinatra’
 
 image::images/11-Ajout-gem-sinatrab.jpg[]
 
-_Entregistrons les modifications faite dans le fichier en appuyant sur
+[TIP]
+Entregistrons les modifications faite dans le fichier en appuyant sur
 les touches Ctrl + x, puis o pour dire 'oui on enregistre les
 modifications' et enfin entrée pour valider le nom du fichier (ici on
-garde le même)._
+garde le même).
 
 Maintenant, exécutons la commande suivante afin de créer le fichier qui
 va enregistrer les numéros de version actuelles.
 
-`bundle install`
+[source,bash]
+bundle install
 
 image::images/14-Bundle-install.jpg[]
 
@@ -152,7 +167,8 @@ image::images/15-Verif-fichier-apres-bundle-install.jpg[]
 
 Allons voir ce que contient le fichier Gemfile.lock par la commande
 
-`nano Gemfile.lock`
+[source,bash]
+nano Gemfile.lock
 
 image::images/16-visu-fichier-Gemfilelock.jpg[]
 
@@ -178,17 +194,21 @@ nous appelerons 'hi.rb'
 Nous pouvons créer ce fichier avec la commande ( comme 'hb.rb' n'éxiste
 pas nano le créera en même temps).
 
-`sudo nano hi.rb`
+[source,bash]
+sudo nano hi.rb
 
 image::images/18-creer-hi.rb.jpg[]
 
 Et saisir le contenu suivant à l'intérieur
 
-	require 'sinatra'
+[source,bash]
+------------------
+require 'sinatra'
 
-	get '/hi' do
-	    “Hello World!”
-	end
+get '/hi' do
+    “Hello World!”
+end
+------------------
 
 De la même façon que tout à l'heure nous quittons avec la combinaison de
 tout (CTRL + x), il nous demande si on veut enregistrer, on spécifie oui
@@ -202,10 +222,12 @@ Lancement du serveur d'application.
 Comme indiqué sur la page de 'sinatra' exécutons notre fichier par la
 commande.
 
-`ruby hi.rb`
+[source,bash]
+ruby hi.rb
 
-_Nous n'avons pas besoin de l'installer étant donné que nous l'avons
-fait au préalable_
+[NOTE]
+Nous n'avons pas besoin de l'installer étant donné que nous l'avons
+fait au préalable
 
 image::images/20-lancement-hi-rb.jpg[]
 
@@ -214,7 +236,8 @@ est inaccessible).
 
 Tentons d'éxécuter le fichier en mode production avec l'instruction.
 
-`ruby hi.rb -e production`
+[source,bash]
+ruby hi.rb -e production
 
 image::images/21-lancement-hi-rb-en-mode-production.jpg[]
 
@@ -231,10 +254,13 @@ L'affichage de notre page.
 Tentons donc de nous connecter à cette page en entrant l'url suivante
 dans notre navigateur.
 
-`192.0.168.16:4567`
+********
+http://192.0.168.16:4567/
+********
 
-_192.168.0.16 est l'IP de mon RaspberryPi il faudra bien évidement
-remplacer cette IP par celle de votre RaspberryPi._
+[NOTE]
+192.168.0.16 est l'IP de mon RaspberryPi il faudra bien évidement
+remplacer cette IP par celle de votre RaspberryPi.
 
 image::images/23-visualation-du-resultat-mais-erreur.jpg[]
 
@@ -245,7 +271,9 @@ spécifiée.
 
 En entrant cette fois l'url suivante.
 
-`192.0.168.16:4567/hi`
+********
+http://192.0.168.16:4567/hi
+********
 
 image::images/24-ca-marche.jpg[]
 
