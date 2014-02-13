@@ -38,7 +38,7 @@ ruby
 
 `ruby –-version`
 
-Image:
+image::images/01-Ruby-version.jpg[]
 
 Ici on voit que la version 1.9.3.p194 de ruby est installée
 
@@ -49,7 +49,7 @@ On va vérifier ensuite que gem soit bien installé avec la commande
 
 `gem –-version`
 
-Image:
+image::images/02-gem-version.jpg[]
 
 Cette fois c'est la version 1.8.23 de gem qui est installée
 
@@ -61,7 +61,7 @@ cela on éxécute la commande
 
 `sudo gem install sinatra`
 
-Image:
+image::images/03-Install-Sinatra.jpg[]
 
 _Vous devez être connecté à internet pour cette étape car le framework
 sinatra sera téléchargé._
@@ -76,7 +76,7 @@ Verification que bundle soit bien installé.
 
 `bundle --version`
 
-Image:
+image::images/04-Bundle-version-pas-installe.jpg[]
 
 Le retour commande introuvable nous indique que bundle n'est pas
 installé, nous allons donc l'installer avec la commande.
@@ -85,14 +85,14 @@ installé, nous allons donc l'installer avec la commande.
 
 _il y'a bien un 'r' à la fin, ce n'est pas une faute de frappe_
 
-Image:
+image::images/05-install-Bundler.jpg[]
 
 Vérification que l'installation ce soit bien déroulée en rééxécutant la
 commande
 
 `bundle --version`
 
-Image:
+image::images/07-verif-apres-install-Bundler.jpg[]
 
 Cette fois-ci, un numéro de version nous est affichée, nous avons donc
 bien bundle d'installé.
@@ -101,7 +101,7 @@ Controle du contenu du dossier en cours avec la commande.
 
 `ls -alh`
 
-Image:
+image::images/08-avant-bundle-init.jpg[]
 
 Nous voyons que notre dossier est vide (ce qui est logique vu que nous
 n'avons encore rien fait)
@@ -111,11 +111,11 @@ utilisées).
 
 `bundle init`
 
-Image:
+image::images/09a-apres-bundle-init.jpg[]
 
 Regardons à nouveau le contenu de notre dossier.
 
-Image:
+image::images/09b-apres-bundle-init.jpg[]
 
 On voit qu'un fichier Gemfile à été créé.
 
@@ -123,7 +123,7 @@ Allons voir ce qu'il contient en éxécutant la commande suivante.
 
 `sudo nano Gemfile`
 
-Image:
+image::images/10-edit-fichier-Gemfile.jpg[]
 
 Nous remarquons que ce fichier est vide (enfin presque), car il contient
 tout de même un exemple. Nous allons lui spécifier de gérer les
@@ -131,7 +131,7 @@ dépendances pour le framework sinatra. En ajoutant la ligne suivante.
 
 `gem ‘sinatra’`
 
-Image:
+image::images/11-Ajout-gem-sinatrab.jpg[]
 
 _Entregistrons les modifications faite dans le fichier en appuyant sur
 les touches Ctrl + x, puis o pour dire 'oui on enregistre les
@@ -143,18 +143,18 @@ va enregistrer les numéros de version actuelles.
 
 `bundle install`
 
-Image:
+image::images/14-Bundle-install.jpg[]
 
 Retournons voir le contenu de notre répertoire, on remarque que le
 fichier Gemfile.lock a été créé.
 
-Image:
+image::images/15-Verif-fichier-apres-bundle-install.jpg[]
 
 Allons voir ce que contient le fichier Gemfile.lock par la commande
 
 `nano Gemfile.lock`
 
-Image:
+image::images/16-visu-fichier-Gemfilelock.jpg[]
 
 Le fichier Gemfile.lock recense bien toutes les Gems (et surtout leurs
 versions) nécessairent.
@@ -170,7 +170,7 @@ d'application, pour cela rendez-vous sur la page du framework sinatra
 (http://www.sinatrarb.com/[http://www.sinatrarb.com]) pour voir ce qui
 est indiqué.
 
-Image:
+image::images/17-instruction-site-sinatra.jpg[]
 
 Il nous est donc demandé dans un premier temps de créer un fichier que
 nous appelerons 'hi.rb'
@@ -180,15 +180,15 @@ pas nano le créera en même temps).
 
 `sudo nano hi.rb`
 
-Image:
+image::images/18-creer-hi.rb.jpg[]
 
 Et saisir le contenu suivant à l'intérieur
 
-`require 'sinatra'`
+	require 'sinatra'
 
-`get '/hi' do` +
-`    “Hello World!”` +
-`end `
+	get '/hi' do
+	    “Hello World!”
+	end
 
 De la même façon que tout à l'heure nous quittons avec la combinaison de
 tout (CTRL + x), il nous demande si on veut enregistrer, on spécifie oui
@@ -207,7 +207,7 @@ commande.
 _Nous n'avons pas besoin de l'installer étant donné que nous l'avons
 fait au préalable_
 
-Image:
+image::images/20-lancement-hi-rb.jpg[]
 
 On remarque une erreur à la création de l'adresse (de plus notre page
 est inaccessible).
@@ -216,9 +216,9 @@ Tentons d'éxécuter le fichier en mode production avec l'instruction.
 
 `ruby hi.rb -e production`
 
-Image:
+image::images/21-lancement-hi-rb-en-mode-production.jpg[]
 
-Image:
+image::images/22-lance-en-mode-production.jpg[]
 
 Cette fois ci, il n'y a pas d'erreur.
 
@@ -236,7 +236,7 @@ dans notre navigateur.
 _192.168.0.16 est l'IP de mon RaspberryPi il faudra bien évidement
 remplacer cette IP par celle de votre RaspberryPi._
 
-Image:
+image::images/23-visualation-du-resultat-mais-erreur.jpg[]
 
 Arf, ça marche pas. Regardons notre fichier hi.rb de plus près. On
 remarque qu'on lui a spécifié une route ('/hi'). Or là, nous nous
@@ -247,7 +247,7 @@ En entrant cette fois l'url suivante.
 
 `192.0.168.16:4567/hi`
 
-Image:
+image::images/24-ca-marche.jpg[]
 
 Cette fois notre serveur fonctionne parfaitement et notre page est
 correctement appelée :).
