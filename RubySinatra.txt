@@ -206,7 +206,7 @@ Et saisir le contenu suivant à l'intérieur
 require 'sinatra'
 
 get '/hi' do
-    “Hello World!”
+    "Hello World!"
 end
 ------------------
 
