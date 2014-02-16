@@ -1,5 +1,5 @@
-Configuration du RaspberryPi pour l'utilisation du framework Sinatra
-====================================================================
+Tutoriel RaspberryPi + Sinatra
+==============================
 Romuald ROUSSEAU <romuald.rousseau.35@free.fr>
 :toc:
 :icons:
