@@ -197,7 +197,7 @@ pas nano le créera en même temps).
 [source,bash]
 sudo nano hi.rb
 
-image::images/18-creer-hi.rb.jpg[]
+image::images/18-creer-hi-rb.jpg[]
 
 Et saisir le contenu suivant à l'intérieur
 
