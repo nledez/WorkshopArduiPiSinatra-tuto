@@ -29,5 +29,5 @@ task :pdf => [ "#{ARTICLE}.pdf" ]
 desc "Generate single pdf file"
 file "#{ARTICLE}.pdf" => [ "#{ARTICLE}.txt" ] do
     puts "I start to make #{ARTICLE}.pdf"
-    sh "a2x -f pdf --fop --verbose --no-xmllint #{ARTICLE}.txt"
+    sh "a2x -f pdf --icons --fop --verbose --no-xmllint #{ARTICLE}.txt"
 end
